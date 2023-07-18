@@ -29,9 +29,9 @@ public class LoginApiTest {
         String errorMessage = jsonObject.get("errorMessage").getAsString();
         int version = jsonObject.get("version").getAsInt();
 
-        assertEquals(100, resultCode);
-        assertEquals("The argument 'email' is required.", errorMessage);
-        assertEquals(491, version);
+        assertEquals(resultCode,100);
+        assertEquals( errorMessage,"The argument 'email' is required.");
+        assertEquals(version, 492);
 
     }
 

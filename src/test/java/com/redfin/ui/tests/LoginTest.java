@@ -16,6 +16,10 @@ public class LoginTest extends BaseTest{
         Assert.assertEquals(homePage.getSearchPartnerText(),homePage.searchPartnerText);
     }
     @Test
+    public void loginWithValidCredsTest(){
+
+    }
+    @Test
     public void emailInboxTest(){
         EmailUtils emailUtils = new EmailUtils();
         emailUtils.goToProtonInbox(emailUtils.emailProtonAddress, emailUtils.emailProtonPassword);
