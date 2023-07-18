@@ -1,7 +1,7 @@
 package com.redfin.utils;
 
 import com.github.javafaker.Faker;
-import com.redfin.ui.pages.WebDriverSingleton;
+import com.redfin.driver.WebDriverSingleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 public class EmailUtils {
     WebDriver driver;
     public String emailProtonSite = "https://mail.proton.me/";
-    public String emailProtonAddress = "redfin_test_user@protonmail.com";
+    public String emailProtonAddress = "redfin_test_user@proton.me";
     public String emailProtonPassword = "Pass123!";
 
     private String emailProtonInputFieldLocator = "//input[@id='username']";

@@ -1,5 +1,6 @@
 package com.redfin.ui.pages;
 
+import com.redfin.driver.WebDriverSingleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,9 +15,16 @@ public class HomePage {
     private String passwordInputLocator = "//input[@name='passwordInput']";
     private String searchPartnerDialogBoxLocator = "//h3[@data-rf-test-name='title']";
     public String searchPartnerText = "Add your search partner";
+    public String displayNameLocator = "//a[@data-rf-test-name='displayName']";
+    public String getDisplayNameText = "TestUser ▾";
 
     public HomePage() {
         this.driver = WebDriverSingleton.getDriver();
+    }
+
+    public HomePage getUrl() {
+        driver.get(baseUrl);
+        return this;
     }
 
     public HomePage clickLoginButton() {
@@ -46,5 +54,10 @@ public class HomePage {
     public String getSearchPartnerText() {
         WebElement searchPartnerDialogBox = driver.findElement(By.xpath(searchPartnerDialogBoxLocator));
         return searchPartnerDialogBox.getText();
+    }
+
+    public String getDisplayNameText() {
+        WebElement displayName = driver.findElement(By.xpath(displayNameLocator));
+        return displayName.getText();
     }
 }
