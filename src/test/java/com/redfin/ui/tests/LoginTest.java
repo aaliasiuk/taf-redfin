@@ -1,7 +1,7 @@
 package com.redfin.ui.tests;
 
 import com.redfin.ui.pages.HomePage;
-import com.redfin.ui.steps.StepUi;
+import com.redfin.ui.steps.StepUiCommon;
 import com.redfin.utils.EmailUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -21,9 +21,9 @@ public class LoginTest extends BaseTest{
       /*  HomePage homePage = new HomePage();
         EmailUtils emailUtils = new EmailUtils();
         homePage.getUrl().clickLoginButton().keyEmail(emailUtils.emailProtonAddress).clickContinueWithEmailbutton().keyPassword(emailUtils.emailProtonPassword).clickContinueWithEmailbutton();*/
-        StepUi stepUi = new StepUi();
+        StepUiCommon stepUiCommon = new StepUiCommon();
         HomePage homePage = new HomePage();
-        stepUi.loginStep();
+        stepUiCommon.loginStep();
         Assert.assertEquals(homePage.getDisplayNameText(),homePage.getDisplayNameText);
 
     }

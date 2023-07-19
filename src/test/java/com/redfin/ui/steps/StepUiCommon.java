@@ -5,10 +5,10 @@ import com.redfin.ui.pages.HomePage;
 import com.redfin.utils.EmailUtils;
 import org.openqa.selenium.WebDriver;
 
-public class StepUi {
+public class StepUiCommon {
     WebDriver driver;
 
-    public StepUi() {
+    public StepUiCommon() {
         this.driver = WebDriverSingleton.getDriver();
     }
 
