@@ -29,6 +29,10 @@ public class EmailUtils {
         Faker faker = new Faker();
         return faker.internet().password();
     }
+    public String generateLastName(){
+        Faker faker = new Faker();
+        return faker.funnyName().name();
+    }
 
     public EmailUtils goToProtonInbox(String emailProtonAddress, String emailProtonPassword) {
         driver.get(emailProtonSite);

@@ -17,6 +17,7 @@ public class HomePage {
     public String searchPartnerText = "Add your search partner";
     public String displayNameLocator = "//a[@data-rf-test-name='displayName']";
     public String getDisplayNameText = "TestUser ▾";
+    private String closeCookieBannerLocator = "//div[@id]/button[@aria-label='Close']";
 
     public HomePage() {
         this.driver = WebDriverSingleton.getDriver();
@@ -24,6 +25,12 @@ public class HomePage {
 
     public HomePage getUrl() {
         driver.get(baseUrl);
+        return this;
+    }
+
+    public HomePage closeCookieBanner() {
+        WebElement closeCookieBanner = driver.findElement(By.xpath(closeCookieBannerLocator));
+        closeCookieBanner.click();
         return this;
     }
 
