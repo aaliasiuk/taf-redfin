@@ -23,6 +23,14 @@ public class AccountDetailsPage {
     private String saveUpdatesButtonLocator = "//form[@data-rf-form-name]//button[@type='submit']";
     private String accountSettingsMenuItemLocator = "//div[@class='flyoutColumn']//a[@href='/myredfin/settings']";
     public String newLastName;
+    public String requiredFieldErrorMessageText = "Required";
+    private String validationPasswordErrorText = "Your password must be at least 6 characters long";
+    private String passwordsDoNotMatchErrorText = "Password entries do not match";
+    private String requiredOldPasswordLocator = "//span[@class='field text Text required error currentPasswordField']/span[@data-rf-test-id='validationFeedback']";
+    private String requiredNewPasswordLocator = "//span[@class='field text Text required error newPasswordField']/span[@data-rf-test-id='validationFeedback']";
+
+    private String requiredReEnterPasswordLocator = "//span[@class='field text Text required error confirmPasswordField']/span[@data-rf-test-id='validationFeedback']";
+    private String changePasswordButtonPrimaryLocator = "//button[@type='submit']";
 
     public AccountDetailsPage() {
         this.driver = WebDriverSingleton.getDriver();
@@ -57,5 +65,49 @@ public class AccountDetailsPage {
         return this;
     }
 
+    public AccountDetailsPage keyOldPassword(String str) {
+        WebElement oldPasswordField = driver.findElement(By.xpath(oldPasswordInputFieldLocator));
+        oldPasswordField.sendKeys(str);
+        return this;
+    }
+
+    public AccountDetailsPage keyNewPassword(String str) {
+        WebElement newPasswordField = driver.findElement(By.xpath(newPasswordInputLocator));
+        newPasswordField.sendKeys(str);
+        return this;
+    }
+
+    public AccountDetailsPage keyConfirmNewPassword(String str) {
+        WebElement confirmNewPassword = driver.findElement(By.xpath(confirmPasswordInputLocator));
+        confirmNewPassword.sendKeys(str);
+        return this;
+    }
+
+    public AccountDetailsPage clickChangePasswordButtonPrimary() {
+        WebElement changePasswordPrimaryButton = driver.findElement(By.xpath(changePasswordButtonPrimaryLocator));
+        changePasswordPrimaryButton.click();
+        return this;
+    }
+
+    public AccountDetailsPage clickChangePasswordButton() {
+        WebElement changePasswordButton = driver.findElement(By.xpath(changePasswordButtonLocator));
+        changePasswordButton.click();
+        return this;
+    }
+
+    public String getrequiredOldPasswordError() {
+        WebElement requiredOldPasswordError = driver.findElement(By.xpath(requiredOldPasswordLocator));
+        return requiredOldPasswordError.getText();
+    }
+
+    public String getRequiredNewPasswordError() {
+        WebElement requiredNewPasswordError = driver.findElement(By.xpath(requiredNewPasswordLocator));
+        return requiredNewPasswordError.getText();
+    }
+
+    public String getRequiredReEnterNewPasswordError() {
+        WebElement requiredReEnterNewPasswordError = driver.findElement(By.xpath(requiredReEnterPasswordLocator));
+        return requiredReEnterNewPasswordError.getText();
+    }
 
 }

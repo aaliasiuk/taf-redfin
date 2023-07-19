@@ -16,4 +16,15 @@ public class AccountTests extends BaseTest {
         accountDetailsPage.clickSaveUpdatesAndRefresh();
         Assert.assertEquals(accountDetailsPage.getLastNameValue(), accountDetailsPage.newLastName);
     }
+
+    @Test
+    public void changePasswordRequiredFieldsTest() {
+        StepUi stepUi = new StepUi();
+        AccountDetailsPage accountDetailsPage = new AccountDetailsPage();
+        stepUi.loginStep();
+        accountDetailsPage.clickAccountSetting().clickChangePasswordButton().clickChangePasswordButtonPrimary();
+        Assert.assertEquals(accountDetailsPage.getrequiredOldPasswordError(), accountDetailsPage.requiredFieldErrorMessageText);
+        Assert.assertEquals(accountDetailsPage.getRequiredNewPasswordError(), accountDetailsPage.requiredFieldErrorMessageText);
+        Assert.assertEquals(accountDetailsPage.getRequiredReEnterNewPasswordError(), accountDetailsPage.requiredFieldErrorMessageText);
+    }
 }
