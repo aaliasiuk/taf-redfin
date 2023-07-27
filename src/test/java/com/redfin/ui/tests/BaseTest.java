@@ -13,6 +13,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void warmUp() {
+        WebDriverSingleton.getDriver();
     }
 
     @AfterMethod
