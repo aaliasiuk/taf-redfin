@@ -31,7 +31,7 @@ public class LoginApiTest {
 
         assertEquals(resultCode,100);
         assertEquals( errorMessage,"The argument 'email' is required.");
-        assertEquals(version, 492);
+        assertEquals(version, 494);
 
     }
 
