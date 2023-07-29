@@ -1,9 +1,7 @@
 package com.redfin.ui.pages;
 
 import com.redfin.driver.WebDriverSingleton;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 public class HomePage {
     WebDriver driver;
@@ -29,8 +27,15 @@ public class HomePage {
     }
 
     public HomePage closeCookieBanner() {
-        WebElement closeCookieBanner = driver.findElement(By.xpath(closeCookieBannerLocator));
-        closeCookieBanner.click();
+        try {
+            WebElement closeCookieBanner = driver.findElement(By.xpath(closeCookieBannerLocator));
+            if (closeCookieBanner.isDisplayed()) {
+                closeCookieBanner.click();
+            }
+        } catch (NoSuchElementException | StaleElementReferenceException e) {
+
+        }
+
         return this;
     }
 

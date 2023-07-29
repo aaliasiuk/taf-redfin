@@ -6,7 +6,7 @@ import com.redfin.utils.EmailUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTest extends BaseTest{
+public class LoginTests extends BaseTest{
     //StepUi stepUi;
     @Test
     public void signUpViaLoginTest(){
